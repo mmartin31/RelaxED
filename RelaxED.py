@@ -11,6 +11,12 @@ class LoadingScreen(Screen):
 class HomeScreen(Screen):
     pass
 
+class ResourceScreen(Screen):
+    pass
+
+class QuoteScreen(Screen):
+    pass
+
 
 class TestApp(App):
     def build(self):
