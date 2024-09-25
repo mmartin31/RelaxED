@@ -2,6 +2,9 @@
     transition:
     LoadingScreen:
     HomeScreen:
+    ResourceScreen:
+    QuoteScreen:
+
 
 <LoadingScreen>:
     name: "Load"
@@ -11,19 +14,86 @@
     FloatLayout:
         Label:
             text: "RelaxED"
-            color: 1,1,1,1
+            color: 0,0,0,1
             font_size: '32sp'
             size: 100,200
-            pos:
 
 <HomeScreen>:
     name: 'Home'
     Image:
         source: "LoadBackground.png"
+    FloatLayout:
+        Label:
+            text: "Home"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size: 100,200
+            pos:
+
+    Button:
+        text: "Home"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0, "top":0.09}
+    Button:
+        text: "Resources"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0.33, "top":0.09}
+        on_press: root.manager.current = "Resources"
+    Button:
+        text: "Daily Quote"
+        size_hint: 0.335, 0.1
+        pos_hint: {"x":0.66, "top":0.09}
+        on_press: root.manager.current = "Daily Quote"
+
 
 
 <ResourceScreen>:
     name: "Resources"
+    Image:
+        source: "LoadBackground.png"
+    Label:
+        text: "Resources"
+        color: 0,0,0,1
+        font_size: '32sp'
+        size: 100,200
+
+    Button:
+        text: "Home"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0, "top":0.09}
+        on_press: root.manager.current = "Home"
+
+    Button:
+        text: "Resources"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0.33, "top":0.09}
+    Button:
+        text: "Daily Quote"
+        size_hint: 0.335, 0.1
+        pos_hint: {"x":0.66, "top":0.09}
+        on_press: root.manager.current = "Daily Quote"
 
 <QuoteScreen>:
     name: "Daily Quote"
+    Image:
+        source: "LoadBackground.png"
+    Label:
+        text: "Daily Quote"
+        color: 0,0,0,1
+        font_size: '32sp'
+        size: 100,200
+
+    Button:
+        text: "Home"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0, "top":0.09}
+        on_press: root.manager.current = "Home"
+    Button:
+        text: "Resources"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0.33, "top":0.09}
+        on_press: root.manager.current = "Resources"
+    Button:
+        text: "Daily Quote"
+        size_hint: 0.335, 0.1
+        pos_hint: {"x":0.66, "top":0.09}
