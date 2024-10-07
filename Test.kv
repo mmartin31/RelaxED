@@ -4,6 +4,7 @@
     HomeScreen:
     ResourceScreen:
     QuoteScreen:
+    Tab:
 
 
 <LoadingScreen>:
@@ -39,12 +40,16 @@
         text: "Resources"
         size_hint: 0.333, 0.1
         pos_hint: {"x":0.33, "top":0.09}
-        on_press: root.manager.current = "Resources"
+        on_press:
+            root.manager.current = "Resources"
+            root.manager.transition.direction = "left"
     Button:
         text: "Daily Quote"
         size_hint: 0.335, 0.1
         pos_hint: {"x":0.66, "top":0.09}
-        on_press: root.manager.current = "Daily Quote"
+        on_press:
+            root.manager.current = "Daily Quote"
+            root.manager.transition.direction = "left"
 
 
 
@@ -62,7 +67,9 @@
         text: "Home"
         size_hint: 0.333, 0.1
         pos_hint: {"x":0, "top":0.09}
-        on_press: root.manager.current = "Home"
+        on_press:
+            root.manager.current = "Home"
+            root.manager.transition.direction = "right"
 
     Button:
         text: "Resources"
@@ -72,7 +79,9 @@
         text: "Daily Quote"
         size_hint: 0.335, 0.1
         pos_hint: {"x":0.66, "top":0.09}
-        on_press: root.manager.current = "Daily Quote"
+        on_press:
+            root.manager.current = "Daily Quote"
+            root.manager.transition.direction = "left"
 
 <QuoteScreen>:
     name: "Daily Quote"
@@ -88,13 +97,18 @@
         text: "Home"
         size_hint: 0.333, 0.1
         pos_hint: {"x":0, "top":0.09}
-        on_press: root.manager.current = "Home"
+        on_press:
+            root.manager.current = "Home"
+            root.manager.transition.direction = "right"
     Button:
         text: "Resources"
         size_hint: 0.333, 0.1
         pos_hint: {"x":0.33, "top":0.09}
-        on_press: root.manager.current = "Resources"
+        on_press:
+            root.manager.current = "Resources"
+            root.manager.transition.direction = "right"
     Button:
         text: "Daily Quote"
         size_hint: 0.335, 0.1
         pos_hint: {"x":0.66, "top":0.09}
+

@@ -4,8 +4,10 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, TransitionBase
 import time
 
+
 class ScreenManagement(ScreenManager):
     pass
+
 
 class LoadingScreen(Screen):
     def on_enter(self):
@@ -13,15 +15,20 @@ class LoadingScreen(Screen):
 
     def change_screen(self, dt):
         self.manager.current = "Home"
+        self.manager.TransitionBase = "FadeTransition"
+
 
 class HomeScreen(Screen):
     pass
 
+
 class ResourceScreen(Screen):
     pass
 
+
 class QuoteScreen(Screen):
     pass
+
 
 class Tab(Screen):
     pass
