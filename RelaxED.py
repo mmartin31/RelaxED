@@ -44,6 +44,3 @@ class TestApp(App):
 
 
 TestApp().run()
-
-
-
