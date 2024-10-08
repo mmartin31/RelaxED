@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   build:
@@ -13,8 +13,7 @@ jobs:
       # used to cashe dependencies with a timeout
       - name: Get Date
         id: get-date
-        run:
-          echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
+        run: echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
         shell: bash
 
       - name: Cache Buildozer global directory
