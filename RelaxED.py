@@ -4,6 +4,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, TransitionBase
 from kivy.core.window import Window
 
+
 class ScreenManagement(ScreenManager):
     pass
 
@@ -22,6 +23,14 @@ class HomeScreen(Screen):
 
 
 class ResourceScreen(Screen):
+    pass
+
+
+class AnxietyEDScreen(Screen):
+    pass
+
+
+class LocalResourcesScreen(Screen):
     pass
 
 

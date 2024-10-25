@@ -3,6 +3,8 @@
     LoadingScreen:
     HomeScreen:
     ResourceScreen:
+    AnxietyEDScreen:
+    LocalResourcesScreen:
     QuoteScreen:
     Tab:
 
@@ -91,32 +93,36 @@
     FloatLayout:
         Label:
             name: "anxiety"
-            text: "What is Anxiety?"
+            text: "[ref=<str>]What is Anxiety?[/ref]"
             color: 0,0,0,1
             font_size: '32sp'
             size_hint: 0.1, 0.2
-            pos_hint: {"x":0.45, "top": 1}
-        Label:
-            name: "local_help"
-            text: "Where to Get Help?"
-            color: 0,0,0,1
-            font_size: '32sp'
-            size_hint: 0.1, 0.2
-            pos_hint: {"x":0.45, "top":0.8}
+            pos_hint: {"x":0.45, "top": 0.8}
+            markup: True
+            on_ref_press:
+                root.manager.current = "Anxiety Education"
+
         Label:
             name: "resources"
-            text: "Local Resources"
+            text: "[ref=<str>]Local Resources[/ref]"
             color: 0,0,0,1
             font_size: '32sp'
             size_hint: 0.1, 0.2
             pos_hint: {"x":0.45, "top":0.6}
+            markup: True
+            on_ref_press:
+                root.manager.current = "Local Resources"
         Label:
-            name: "online_tools"
-            text: "Online Support Tools"
+            name: "survey"
+            text: "[ref=<str>]App Survey[/ref]"
             color: 0,0,0,1
             font_size: '32sp'
             size_hint: 0.1, 0.2
             pos_hint: {"x":0.45, "top":0.4}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://gardnerwebb.pdx1.qualtrics.com/jfe/preview/previewId/b591051a-d5fe-47a0-810a-b2e051921267/SV_cx5fWpMjjbh51no?Q_CHL=preview&Q_SurveyVersionID=current")
 
     Button:
         text: "Home"
@@ -137,6 +143,260 @@
         on_press:
             root.manager.current = "Daily Quote"
             root.manager.transition.direction = "left"
+
+<AnxietyEDScreen>:
+    name: "Anxiety Education"
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            pos:
+            size: self.size
+    Image:
+        source: "LoadBackground.png"
+        size_hint: 0.3, 0.3
+        pos_hint: {"x":0.35, "top":0.65}
+
+    FloatLayout:
+        Label:
+            text: "Anxiety Management (YouTube Links)"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top": 1}
+        Label:
+            text: "Binaural Beats"
+            color: 0,0,0,1
+            font_size: '24sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.25, "top":0.9}
+        Label:
+            text: "[ref=<str>][u] https://www.youtube.com/watch?v=xsfyb1pStdw[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.25, "top":0.8}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.youtube.com/watch?v=xsfyb1pStdw")
+        Label:
+            text: "[ref=<str>][u]https://www.youtube.com/watch?v=JP3R00tCL4I[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.25, "top":0.7}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.youtube.com/watch?v=JP3R00tCL4I")
+        Label:
+            text: "Mindfulness/Meditation"
+            color: 0,0,0,1
+            font_size: '24sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.6, "top":0.9}
+        Label:
+            text: "[ref=<str>][u]https://www.youtube.com/watch?v=ZToicYcHIOU[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.6, "top":0.8}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.youtube.com/watch?v=ZToicYcHIOU")
+        Label:
+            text: "[ref=<str>][u]https://www.youtube.com/watch?v=Xl_B45DpMLU[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.6, "top":0.7}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.youtube.com/watch?v=Xl_B45DpMLU")
+
+
+    Button:
+        text: "Home"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0, "top":0.09}
+        on_press:
+            root.manager.current = "Home"
+    Button:
+        text: "Resources"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0.33, "top":0.09}
+        on_press:
+            root.manager.current = "Resources"
+    Button:
+        text: "Daily Quote"
+        size_hint: 0.335, 0.1
+        pos_hint: {"x":0.66, "top":0.09}
+        on_press:
+            root.manager.current = "Daily Quote"
+
+<LocalResourcesScreen>
+    name: "Local Resources"
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            pos:
+            size: self.size
+    Image:
+        source: "LoadBackground.png"
+        size_hint: 0.3, 0.3
+        pos_hint: {"x":0.35, "top":0.65}
+
+    FloatLayout:
+        Label:
+            text: "Local Providers"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":1}
+
+        Label:
+            text: "[ref=<str>][u]Triad Therapy LLC[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.9}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.triadtherapy.com/")
+        Label:
+            text: "[ref=<str>][u]NHTC | New Horizons Treatment Center | United States[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.85}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.newhorizonstreatment.org/")
+        Label:
+            text: "[ref=<str>][u]Therapy \ Asheboro, NC (abmnc.com)[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.8}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("http://www.abmnc.com/")
+        Label:
+            text: "[ref=<str>][u]Home | Asheboro Counseling & Wellness[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.75}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.asheborocounseling.com/")
+        Label:
+            text: "[ref=<str>][u]Daymark Recovery Services - Asheboro Center[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.7}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.daymarkrecovery.org/locations/asheboro-center")
+        Label:
+            text: "[ref=<str>][u]RedBud Legacy – A Place to Discover Your Legacy[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.65}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://redbudlegacy.com/")
+        Label:
+            text: "[ref=<str>][u]Daymark Recovery Services - Archdale Center[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.6}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.daymarkrecovery.org/locations/archdale-center")
+        Label:
+            text: "[ref=<str>][u]Contact - Family Solutions (famsolutions.org)[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.55}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.famsolutions.org/contact")
+        Label:
+            text: "[ref=<str>][u]Haven Counseling Group – Sometimes Listening Needs a Third Person[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.5}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://havencounselinggroup.org/")
+        Label:
+            text: "[ref=<str>][u]Morrow Office – Youth Unlimited Inc[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.45}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://youthunlimited.cc/?page_id=1693")
+        Label:
+            text: "Cardinal Clinic, LLC  336.318.2760   Asheboro, NC\n\nSteps for Change Behavioral  (336) 824-2171  Ramseur, NC\n\nWildflower Counseling and Consulting, PLLC  (336) 937-0716   Ramseur, NC"
+            halign: 'center'
+            color: 0,0,0,1
+            font_size: '12sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.35}
+        Label:
+            text: "[ref=<str>][u]Support Groups/Facilities[/u][/ref]"
+            color: 0,0,0.55,1
+            font_size: '20sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.25}
+            markup: True
+            on_ref_press:
+                import webbrowser
+                webbrowser.open("https://www.randolphfcc.org/")
+
+
+
+
+    Button:
+        text: "Home"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0, "top":0.09}
+        on_press:
+            root.manager.current = "Home"
+    Button:
+        text: "Resources"
+        size_hint: 0.333, 0.1
+        pos_hint: {"x":0.33, "top":0.09}
+        on_press:
+            root.manager.current = "Resources"
+    Button:
+        text: "Daily Quote"
+        size_hint: 0.335, 0.1
+        pos_hint: {"x":0.66, "top":0.09}
+        on_press:
+            root.manager.current = "Daily Quote"
 
 <QuoteScreen>:
     name: "Daily Quote"
