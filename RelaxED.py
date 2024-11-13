@@ -2,7 +2,7 @@ from kivy.clock import Clock
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, TransitionBase
-import time
+from kivy.core.window import Window
 
 
 class ScreenManagement(ScreenManager):
@@ -37,6 +37,7 @@ class Tab(Screen):
 class TestApp(App):
     def build(self):
         self.fl = FloatLayout()
+        self.size = Window.size
         return ScreenManagement()
 
     def showTab(self):

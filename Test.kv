@@ -9,28 +9,53 @@
 
 <LoadingScreen>:
     name: "Load"
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            size: self.size
+
     Image:
         source: "LoadBackground.png"
+        size_hint: 0.3, 0.3
+        pos_hint: {"x":0.35, "top":0.65}
 
     FloatLayout:
         Label:
-            text: "RelaxED"
+            text: "BREATHEWELL"
             color: 0,0,0,1
             font_size: '32sp'
-            size: 100,200
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.4}
+        Label:
+            text: "1 Peter 5:7"
+            color: 0,0,0,1
+            font_size: '20sp'
+            size_hint: 0.05, 0.1
+            pos_hint: {"x":0.475, "top":0.09}
+
 
 
 <HomeScreen>:
     name: 'Home'
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            size: self.size
     Image:
-        source: "LoadBackground.png"
+        source: "verse.jpg"
+        size_hint: 1, 0.5
+        pos_hint: {"x":0, "top":0.85}
+
     FloatLayout:
         Label:
-            text: "Home"
+            text: "BREATHEWELL"
             color: 0,0,0,1
             font_size: '32sp'
-            size: 100,200
-            pos:
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.99}
+
 
     Button:
         text: "Home"
@@ -56,13 +81,42 @@
 
 <ResourceScreen>:
     name: "Resources"
-    Image:
-        source: "LoadBackground.png"
-    Label:
-        text: "Resources"
-        color: 0,0,0,1
-        font_size: '32sp'
-        size: 100,200
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            pos:
+            size: self.size
+
+    FloatLayout:
+        Label:
+            name: "anxiety"
+            text: "What is Anxiety?"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top": 1}
+        Label:
+            name: "local_help"
+            text: "Where to Get Help?"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.8}
+        Label:
+            name: "resources"
+            text: "Local Resources"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.6}
+        Label:
+            name: "online_tools"
+            text: "Online Support Tools"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.4}
 
     Button:
         text: "Home"
@@ -86,14 +140,24 @@
 
 <QuoteScreen>:
     name: "Daily Quote"
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            pos:
+            size: self.size
     Image:
         source: "LoadBackground.png"
-    Label:
-        text: "Daily Quote"
-        color: 0,0,0,1
-        font_size: '32sp'
-        size: 100,200
+        size_hint: 0.3, 0.3
+        pos_hint: {"x":0.35, "top":0.65}
 
+    FloatLayout:
+        Label:
+            text: "Daily Quote"
+            color: 0,0,0,1
+            font_size: '32sp'
+            size_hint: 0.1, 0.2
+            pos_hint: {"x":0.45, "top":0.4}
     Button:
         text: "Home"
         size_hint: 0.333, 0.1
