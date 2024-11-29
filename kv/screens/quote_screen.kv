@@ -1,0 +1,81 @@
+<QuoteScreen>:
+    name: "Daily Quote"
+    CommonBackground:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "15dp"
+
+        # Header
+        Label:
+            text: "Daily Inspiration"
+            color: 0, 0, 0, 1
+            font_size: '32sp'
+            size_hint_y: 0.15
+            bold: True
+
+        # Quote Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.65
+            spacing: "20dp"
+
+            # Logo Image
+            Image:
+                source: "images/LoadBackground.png"
+                size_hint: None, None
+                size: "200dp", "200dp"
+                pos_hint: {"center_x": 0.5}
+
+            # Quote Box
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'center'
+                padding: "20dp"
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.9, None
+                    height: quote_label.height + dp(40)
+                    padding: "20dp"
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.6, 0.75, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [20]
+
+                    Label:
+                        id: quote_label
+                        text: "Your daily quote will appear here."
+                        color: 1, 1, 1, 1
+                        font_size: '20sp'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width - dp(40), None
+                        halign: "center"
+                        valign: "middle"
+                        bold: True
+                        markup: True
+
+        # Spacer before button
+        Widget:
+            size_hint_y: 0.1
+
+        # Refresh Button
+        HoverButton:
+            text: "New Quote"
+            size_hint: 0.4, None
+            height: "50dp"
+            pos_hint: {"center_x": 0.5}
+            on_press: root.display_random_quote()
+
+        # Spacer before navigation bar
+        Widget:
+            size_hint_y: 0.1
+
+        # Navigation Bar
+        NavigationBar:
+            size_hint_y: 0.1

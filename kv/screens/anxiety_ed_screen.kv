@@ -1,0 +1,178 @@
+<AnxietyEDScreen>:
+    name: "Anxiety Education"
+    CommonBackground:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "10dp"
+
+        # Header Section
+        Label:
+            text: "Anxiety Management Resources"
+            color: 0, 0, 0, 1
+            font_size: '32sp'
+            size_hint_y: 0.1
+            bold: True
+
+        # Content Area
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.3
+
+            # Left Column - Binaural Beats
+            BoxLayout:
+                orientation: 'vertical'
+                padding: "10dp"
+                spacing: "5dp"
+
+                Label:
+                    text: "Binaural Beats"
+                    color: 0, 0, 0, 1
+                    font_size: '24sp'
+                    bold: True
+                    size_hint_y: 0.4
+
+                Label:
+                    text: "[ref=link1][u]Calming Binaural Beats[/u][/ref]"
+                    markup: True
+                    color: 0, 0, 0.55, 1
+                    font_size: '16sp'
+                    on_ref_press:
+                        import webbrowser
+                        webbrowser.open("https://www.youtube.com/watch?v=xsfyb1pStdw")
+
+                Label:
+                    text: "[ref=link2][u]Anxiety Relief Beats[/u][/ref]"
+                    markup: True
+                    color: 0, 0, 0.55, 1
+                    font_size: '16sp'
+                    on_ref_press:
+                        import webbrowser
+                        webbrowser.open("https://www.youtube.com/watch?v=JP3R00tCL4I")
+
+            # Right Column - Mindfulness/Meditation
+            BoxLayout:
+                orientation: 'vertical'
+                padding: "10dp"
+                spacing: "5dp"
+
+                Label:
+                    text: "Mindfulness/Meditation"
+                    color: 0, 0, 0, 1
+                    font_size: '24sp'
+                    bold: True
+                    size_hint_y: 0.4
+
+                Label:
+                    text: "[ref=link3][u]Guided Meditation[/u][/ref]"
+                    markup: True
+                    color: 0, 0, 0.55, 1
+                    font_size: '16sp'
+                    on_ref_press:
+                        import webbrowser
+                        webbrowser.open("https://www.youtube.com/watch?v=ZToicYcHIOU")
+
+                Label:
+                    text: "[ref=link4][u]Mindfulness Exercise[/u][/ref]"
+                    markup: True
+                    color: 0, 0, 0.55, 1
+                    font_size: '16sp'
+                    on_ref_press:
+                        import webbrowser
+                        webbrowser.open("https://www.youtube.com/watch?v=Xl_B45DpMLU")
+
+        # PowerPoint Section with Controls
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.5
+            spacing: "10dp"
+
+            Label:
+                text: "Understanding Anxiety - Educational Slides"
+                color: 0, 0, 0, 1
+                font_size: '24sp'
+                size_hint_y: 0.1
+                bold: True
+
+            # Slide Counter
+            Label:
+                size_hint_y: 0.1
+                text: f"Slide {carousel.index + 1}/19"
+                color: 0, 0, 0, 1
+                font_size: '18sp'
+                bold: True
+
+            # Carousel
+            Carousel:
+                id: carousel
+                direction: 'right'
+                size_hint_y: 0.6
+                AsyncImage:
+                    source: 'pptImages/slide-1.png'
+                AsyncImage:
+                    source: 'pptImages/slide-2.png'
+                AsyncImage:
+                    source: 'pptImages/slide-3.png'
+                AsyncImage:
+                    source: 'pptImages/slide-4.png'
+                AsyncImage:
+                    source: 'pptImages/slide-5.png'
+                AsyncImage:
+                    source: 'pptImages/slide-6.png'
+                AsyncImage:
+                    source: 'pptImages/slide-7.png'
+                AsyncImage:
+                    source: 'pptImages/slide-8.png'
+                AsyncImage:
+                    source: 'pptImages/slide-9.png'
+                AsyncImage:
+                    source: 'pptImages/slide-10.png'
+                AsyncImage:
+                    source: 'pptImages/slide-11.png'
+                AsyncImage:
+                    source: 'pptImages/slide-12.png'
+                AsyncImage:
+                    source: 'pptImages/slide-13.png'
+                AsyncImage:
+                    source: 'pptImages/slide-14.png'
+                AsyncImage:
+                    source: 'pptImages/slide-15.png'
+                AsyncImage:
+                    source: 'pptImages/slide-16.png'
+                AsyncImage:
+                    source: 'pptImages/slide-17.png'
+                AsyncImage:
+                    source: 'pptImages/slide-18.png'
+                AsyncImage:
+                    source: 'pptImages/slide-19.png'
+
+            # Navigation Buttons
+            BoxLayout:
+                size_hint_y: 0.1
+                spacing: "20dp"
+                padding: ["20dp", "0dp"]
+
+                Widget:
+                    size_hint_x: 0.4  # Spacer
+
+                HoverButton:
+                    text: "<<"
+                    size_hint_x: 0.1  # Smaller button
+                    on_press: carousel.load_previous()
+                    disabled: carousel.index == 0
+                    opacity: 0.5 if self.disabled else 1
+
+                HoverButton:
+                    text: ">>"
+                    size_hint_x: 0.1  # Smaller button
+                    on_press: carousel.load_next()
+                    disabled: carousel.index == 18
+                    opacity: 0.5 if self.disabled else 1
+
+                Widget:
+                    size_hint_x: 0.4  # Spacer
+
+        # Navigation Bar
+        NavigationBar:
+            size_hint_y: 0.1

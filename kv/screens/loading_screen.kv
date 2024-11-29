@@ -1,0 +1,55 @@
+<LoadingScreen>:
+    name: "Load"
+    CommonBackground:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+
+        # Spacer for top
+        Widget:
+            size_hint_y: 0.2
+
+        # Logo Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.6
+
+            # Image
+            Image:
+                source: "images/LoadBackground.png"
+                size_hint: None, None
+                size: "300dp", "300dp"  # Adjust size as needed
+                pos_hint: {"center_x": 0.5}
+
+            # App Name
+            Label:
+                text: "BREATHEWELL"
+                color: 0, 0, 0, 1
+                font_size: '42sp'  # Made slightly larger
+                bold: True
+                size_hint_y: None
+                height: "60dp"
+                pos_hint: {"center_x": 0.5}
+
+        # Bible Verse Section
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.2
+
+            Label:
+                text: "1 Peter 5:7"
+                color: 0, 0, 0, 1
+                font_size: '24sp'  # Made slightly larger
+                italic: True  # Optional: adds emphasis
+                size_hint_y: None
+                height: "40dp"
+                pos_hint: {"center_x": 0.5}
+
+            Label:
+                text: "\"Cast all your anxiety on him because he cares for you.\""
+                color: 0, 0, 0, 1
+                font_size: '16sp'
+                size_hint_y: None
+                height: "30dp"
+                pos_hint: {"center_x": 0.5}

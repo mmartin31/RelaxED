@@ -1,0 +1,206 @@
+#:import webbrowser webbrowser
+
+<LocalResourcesScreen>:
+    name: "Local Resources"
+    CommonBackground:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "10dp"
+
+        # Header
+        Label:
+            text: "Local Mental Health Providers"
+            color: 0, 0, 0, 1
+            font_size: '32sp'
+            size_hint_y: 0.1
+            bold: True
+
+        # Main Content Area
+        ScrollView:
+            size_hint_y: 0.8
+            do_scroll_x: False
+            do_scroll_y: True
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: "15dp"
+                padding: "10dp"
+
+                # Logo Image
+                Image:
+                    source: "images/LoadBackground.png"
+                    size_hint: None, None
+                    size: "200dp", "200dp"
+                    pos_hint: {"center_x": 0.5}
+
+                # Provider Links Box
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "10dp"
+                    padding: "15dp"
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.6, 0.75, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+
+                    Label:
+                        text: "Local Provider Links"
+                        color: 0, 0, 0, 1
+                        font_size: '24sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        bold: True
+
+                    Label:
+                        text: "[ref=triad][u]Triad Therapy LLC[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://www.triadtherapy.com/")
+
+                    Label:
+                        text: "[ref=nhtc][u]NHTC | New Horizons Treatment Center[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://www.newhorizonstreatment.org/")
+
+                    Label:
+                        text: "[ref=abmnc][u]Therapy \\ Asheboro, NC (abmnc.com)[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("http://www.abmnc.com/")
+
+                    Label:
+                        text: "[ref=acw][u]Asheboro Counseling & Wellness[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://www.asheborocounseling.com/")
+
+                    Label:
+                        text: "[ref=daymark1][u]Daymark Recovery Services - Asheboro Center[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://www.daymarkrecovery.org/locations/asheboro-center")
+
+                    Label:
+                        text: "[ref=redbud][u]RedBud Legacy[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://redbudlegacy.com/")
+
+                    Label:
+                        text: "[ref=daymark2][u]Daymark Recovery Services - Archdale Center[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://www.daymarkrecovery.org/locations/archdale-center")
+
+                    Label:
+                        text: "[ref=famsol][u]Family Solutions[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://www.famsolutions.org/contact")
+
+                    Label:
+                        text: "[ref=haven][u]Haven Counseling Group[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://havencounselinggroup.org/")
+
+                    Label:
+                        text: "[ref=youth][u]Morrow Office – Youth Unlimited Inc[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        on_ref_press: webbrowser.open("https://youthunlimited.cc/?page_id=1693")
+
+                # Local Contact Info Box
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: "10dp"
+                    padding: "15dp"
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.6, 0.75, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+
+                    Label:
+                        text: "Additional Local Providers"
+                        color: 0, 0, 0, 1
+                        font_size: '24sp'
+                        size_hint_y: None
+                        height: "40dp"
+                        bold: True
+
+                    Label:
+                        text: "Cardinal Clinic, LLC\n336.318.2760 • Asheboro, NC\n\nSteps for Change Behavioral\n(336) 824-2171 • Ramseur, NC\n\nWildflower Counseling and Consulting, PLLC\n(336) 937-0716 • Ramseur, NC"
+                        color: 0, 0, 0, 1
+                        font_size: '16sp'
+                        size_hint_y: None
+                        height: "200dp"
+                        halign: 'center'
+                        valign: 'middle'
+
+                # Support Groups Box
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: "100dp"
+                    padding: "15dp"
+                    canvas.before:
+                        Color:
+                            rgba: 0.95, 0.6, 0.75, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [15]
+
+                    Label:
+                        text: "[ref=support][u]Support Groups/Facilities[/u][/ref]"
+                        markup: True
+                        color: 0, 0, 0.55, 1
+                        font_size: '20sp'
+                        on_ref_press: webbrowser.open("https://www.randolphfcc.org/")
+
+        NavigationBar:

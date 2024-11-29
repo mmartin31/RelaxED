@@ -1,0 +1,111 @@
+#:import webbrowser webbrowser
+
+<ResourceScreen>:
+    name: "Resources"
+    CommonBackground:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "15dp"
+
+        # Header
+        Label:
+            text: "Resources"
+            color: 0, 0, 0, 1
+            font_size: '36sp'
+            size_hint_y: 0.2
+            bold: True
+
+        # Main Content
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 0.7
+            spacing: "20dp"
+            padding: "10dp"
+
+            # Screening Tools Button
+            BoxLayout:
+                size_hint_y: 0.25
+                padding: "10dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+
+                Label:
+                    text: "[ref=tools]Screening Tools[/ref]"
+                    markup: True
+                    color: 0, 0, 0, 1
+                    font_size: '32sp'
+                    bold: True
+                    on_ref_press: root.manager.current = "Screening Tools"
+
+            # Anxiety Education Button
+            BoxLayout:
+                size_hint_y: 0.25
+                padding: "10dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+
+                Label:
+                    text: "[ref=anxiety]What is Anxiety?[/ref]"
+                    markup: True
+                    color: 0, 0, 0, 1
+                    font_size: '32sp'
+                    bold: True
+                    on_ref_press: root.manager.current = "Anxiety Education"
+
+            # Local Resources Button
+            BoxLayout:
+                size_hint_y: 0.25
+                padding: "10dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+
+                Label:
+                    text: "[ref=local]Local Resources[/ref]"
+                    markup: True
+                    color: 0, 0, 0, 1
+                    font_size: '32sp'
+                    bold: True
+                    on_ref_press: root.manager.current = "Local Resources"
+
+            # App Survey Button
+            BoxLayout:
+                size_hint_y: 0.25
+                padding: "10dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+
+                Label:
+                    text: "[ref=survey]App Survey[/ref]"
+                    markup: True
+                    color: 0, 0, 0, 1
+                    font_size: '32sp'
+                    bold: True
+                    on_ref_press:
+                        import webbrowser
+                        webbrowser.open("https://gardnerwebb.pdx1.qualtrics.com/jfe/preview/previewId/b591051a-d5fe-47a0-810a-b2e051921267/SV_cx5fWpMjjbh51no?Q_CHL=preview&Q_SurveyVersionID=current")
+
+        # Navigation Bar
+        NavigationBar:
+            size_hint_y: 0.1

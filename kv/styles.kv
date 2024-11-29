@@ -1,0 +1,59 @@
+#:kivy 2.0.0
+
+# Define reusable styles
+<CommonBackground@Widget>:
+    canvas:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+<HoverButton>:  # Note: removed the @HoverButton
+    size_hint_x: 1
+    size_hint_y: None
+    height: "50dp"
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (0.78, 0.39, 0.56, 1) if self.hovered else (0.93, 0.46, 0.66, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]
+
+    # Text styling
+    color: 1, 1, 1, 1
+    font_size: '18sp'
+    bold: True
+
+<NavigationBar@BoxLayout>:
+    orientation: 'horizontal'
+    size_hint_x: 1
+    size_hint_y: None
+    height: "60dp"
+    pos_hint: {"x": 0, "bottom": 0}
+    padding: "10dp"
+    spacing: "5dp"
+    canvas.before:
+        Color:
+            rgba: 1, 0.77, 0.88, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    HoverButton:
+        text: "Home"
+        on_press:
+            app.root.current = "Home"
+
+    HoverButton:
+        text: "Resources"
+        on_press:
+            app.root.current = "Resources"
+
+    HoverButton:
+        text: "Daily Quote"
+        on_press:
+            app.root.current = "Daily Quote"

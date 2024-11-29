@@ -1,0 +1,107 @@
+<ScreeningToolsScreen>:
+    name: "Screening Tools"
+    CommonBackground:
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: "20dp"
+        spacing: "15dp"
+
+        # Header
+        Label:
+            text: "Mental Health Screening Tools"
+            color: 0, 0, 0, 1
+            font_size: '32sp'
+            size_hint_y: 0.15
+            bold: True
+
+        # Description
+        Label:
+            text: "These screening tools are for educational purposes only and are not a substitute for professional diagnosis."
+            color: 0, 0, 0, 1
+            font_size: '16sp'
+            size_hint_y: 0.1
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
+
+        # Screening Tools Grid
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: "15dp"
+            padding: "10dp"
+            size_hint_y: 0.65
+
+            # GAD-7
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: "5dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1  # Light pink background
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+                padding: "10dp"
+
+                Label:
+                    text: "GAD-7"
+                    color: 0, 0, 0, 1
+                    font_size: '24sp'
+                    size_hint_y: 0.3
+                    bold: True
+
+                Label:
+                    text: "Generalized Anxiety\nDisorder Assessment"
+                    color: 0, 0, 0, 1
+                    font_size: '16sp'
+                    size_hint_y: 0.4
+                    halign: 'center'
+
+                HoverButton:
+                    text: "Take Assessment"
+                    size_hint: 0.8, 0.3
+                    pos_hint: {'center_x': 0.5}
+                    on_press:
+                        import webbrowser
+                        webbrowser.open("https://www.mdcalc.com/gad-7-general-anxiety-disorder-7")
+
+            # PHQ-9
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: "5dp"
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+                padding: "10dp"
+
+                Label:
+                    text: "PHQ-9"
+                    color: 0, 0, 0, 1
+                    font_size: '24sp'
+                    size_hint_y: 0.3
+                    bold: True
+
+                Label:
+                    text: "Patient Health\nQuestionnaire"
+                    color: 0, 0, 0, 1
+                    font_size: '16sp'
+                    size_hint_y: 0.4
+                    halign: 'center'
+
+                HoverButton:
+                    text: "Take Assessment"
+                    size_hint: 0.8, 0.3
+                    pos_hint: {'center_x': 0.5}
+                    on_press:
+                        import webbrowser
+                        webbrowser.open("https://www.mdcalc.com/phq-9-patient-health-questionnaire-9")
+
+        # Navigation Bar
+        NavigationBar:
+            size_hint_y: 0.1
