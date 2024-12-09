@@ -1,3 +1,6 @@
+# Main kivy file that defines the screen management and includes all the kv files.
+
+# Include all screen kivy files.
 #:include kv/screens/loading_screen.kv
 #:include kv/screens/home_screen.kv
 #:include kv/screens/resources_screen.kv
@@ -5,10 +8,14 @@
 #:include kv/screens/anxiety_ed_screen.kv
 #:include kv/screens/local_resources_screen.kv
 #:include kv/screens/quote_screen.kv
+
+# Include common styles file.
 #:include kv/styles.kv
 
+# Screen Management widget that handles all screens and transitions.
 <ScreenManagement>:
-    transition:
+    # Define all screens
+    # First screen is loaded first, which is the Loading screen.
     LoadingScreen:
     HomeScreen:
     ResourceScreen:
@@ -16,4 +23,3 @@
     AnxietyEDScreen:
     LocalResourcesScreen:
     QuoteScreen:
-    Tab:

@@ -1,59 +1,71 @@
-#:kivy 2.0.0
+# Kivy file for defining reusable styles
 
-# Define reusable styles
+# Common Background widget that can be reused across screens
 <CommonBackground@Widget>:
     canvas:
         Color:
-            rgba: 1, 0.77, 0.88, 1
+            rgba: 1, 0.77, 0.88, 1  # light pink
         Rectangle:
             size: self.size
             pos: self.pos
 
-<HoverButton>:  # Note: removed the @HoverButton
-    size_hint_x: 1
-    size_hint_y: None
-    height: "50dp"
+# Button styling that is applied to all the buttons in the app.
+<Button>:
+    # Button size configuration
+    size_hint_x: 1  # take full width
+    size_hint_y: None  # fixed height
+    height: "50dp"  # set fixed height to 50 density-independent pixels
+
+    # Remove default button background
     background_color: 0, 0, 0, 0
     background_normal: ''
+
+    # Custom button appearance
     canvas.before:
         Color:
-            rgba: (0.78, 0.39, 0.56, 1) if self.hovered else (0.93, 0.46, 0.66, 1)
+            rgba: (0.78, 0.39, 0.56, 1)  # darker pink color
         RoundedRectangle:
             size: self.size
             pos: self.pos
-            radius: [20]
+            radius: [20]  # rounded corners
 
     # Text styling
-    color: 1, 1, 1, 1
-    font_size: '18sp'
-    bold: True
+    color: 1, 1, 1, 1  # white text
+    font_size: '18sp'  # 18 scale-independent pixels
+    bold: True  # make text bold
 
+# Navigation Bar that appears at the button of the screens.
 <NavigationBar@BoxLayout>:
     orientation: 'horizontal'
-    size_hint_x: 1
-    size_hint_y: None
+    size_hint_x: 1  # take full width
+    size_hint_y: None  # fixed height
     height: "60dp"
-    pos_hint: {"x": 0, "bottom": 0}
-    padding: "10dp"
-    spacing: "5dp"
+    pos_hint: {"x": 0, "bottom": 0}  # position at the button of the screen
+    padding: "10dp"  # padding around all edges
+    spacing: "5dp"  # space between buttons
+
+    # Navigation bar background
     canvas.before:
         Color:
-            rgba: 1, 0.77, 0.88, 1
+            rgba: 1, 0.77, 0.88, 1  # light pink
         Rectangle:
             size: self.size
             pos: self.pos
 
-    HoverButton:
+    # Home Button
+    Button:
         text: "Home"
         on_press:
             app.root.current = "Home"
 
-    HoverButton:
+    # Resources button
+    Button:
         text: "Resources"
         on_press:
             app.root.current = "Resources"
 
-    HoverButton:
+    # Daily Quote button
+    Button:
         text: "Daily Quote"
         on_press:
             app.root.current = "Daily Quote"

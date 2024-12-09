@@ -1,33 +1,45 @@
+# Kivy file for resources screen.
+# This screen is a hub for accessing the resources the app has to offer.
+# It has a button to access the screening tools screen, anxiety education screen,
+# local resources screen, and the app survey.
+
+# Import for handling the external survey link.
 #:import webbrowser webbrowser
 
 <ResourceScreen>:
-    name: "Resources"
-    CommonBackground:
+    name: "Resources"  # screen name for navigation
+    CommonBackground:  # applies the common background
 
+    # Main Container for content
     BoxLayout:
         orientation: 'vertical'
-        padding: "20dp"
-        spacing: "15dp"
+        padding: "20dp"  # padding around all content
+        spacing: "15dp"  # space between sections
 
-        # Header
+        # Header Section
         Label:
             text: "Resources"
-            color: 0, 0, 0, 1
+            color: 0, 0, 0, 1  # black text
             font_size: '36sp'
-            size_hint_y: 0.2
+            size_hint_y: 0.2  # 20% of vertical space
+            height: self.texture_size[1]  # adjust height to content
+            text_size: self.width, None  # enable text wrapping
+            halign: 'center'
+            valign: 'middle'
             bold: True
 
-        # Main Content
+        # Main Content - Navigation Buttons
         BoxLayout:
             orientation: 'vertical'
-            size_hint_y: 0.7
+            size_hint_y: 0.7  # 70% of vertical space
             spacing: "20dp"
             padding: "10dp"
 
             # Screening Tools Button
             BoxLayout:
-                size_hint_y: 0.25
+                size_hint_y: 0.25  # equal height for all buttons
                 padding: "10dp"
+                # Pink background with rounded corners
                 canvas.before:
                     Color:
                         rgba: 0.95, 0.6, 0.75, 1
@@ -38,16 +50,23 @@
 
                 Label:
                     text: "[ref=tools]Screening Tools[/ref]"
-                    markup: True
+                    markup: True  # enable markup for clickable text
                     color: 0, 0, 0, 1
                     font_size: '32sp'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
                     bold: True
+                    # Takes user to Screening Tools screen when pressed
                     on_ref_press: root.manager.current = "Screening Tools"
 
             # Anxiety Education Button
             BoxLayout:
                 size_hint_y: 0.25
                 padding: "10dp"
+                # Pink background with rounded corners
                 canvas.before:
                     Color:
                         rgba: 0.95, 0.6, 0.75, 1
@@ -61,13 +80,20 @@
                     markup: True
                     color: 0, 0, 0, 1
                     font_size: '32sp'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
                     bold: True
+                    # Takes user to Anxiety Education Screen when pressed
                     on_ref_press: root.manager.current = "Anxiety Education"
 
             # Local Resources Button
             BoxLayout:
                 size_hint_y: 0.25
                 padding: "10dp"
+                # Pink background with rounded corners
                 canvas.before:
                     Color:
                         rgba: 0.95, 0.6, 0.75, 1
@@ -81,13 +107,20 @@
                     markup: True
                     color: 0, 0, 0, 1
                     font_size: '32sp'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
                     bold: True
+                    # Takes user to Local Resources screen when pressed
                     on_ref_press: root.manager.current = "Local Resources"
 
             # App Survey Button
             BoxLayout:
                 size_hint_y: 0.25
                 padding: "10dp"
+                # Pink background with rounded corners
                 canvas.before:
                     Color:
                         rgba: 0.95, 0.6, 0.75, 1
@@ -101,11 +134,14 @@
                     markup: True
                     color: 0, 0, 0, 1
                     font_size: '32sp'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
                     bold: True
-                    on_ref_press:
-                        import webbrowser
-                        webbrowser.open("https://gardnerwebb.pdx1.qualtrics.com/jfe/preview/previewId/b591051a-d5fe-47a0-810a-b2e051921267/SV_cx5fWpMjjbh51no?Q_CHL=preview&Q_SurveyVersionID=current")
+                    # Takes user to external survey
+                    on_ref_press: webbrowser.open("https://gardnerwebb.pdx1.qualtrics.com/jfe/preview/previewId/b591051a-d5fe-47a0-810a-b2e051921267/SV_cx5fWpMjjbh51no?Q_CHL=preview&Q_SurveyVersionID=current")
 
         # Navigation Bar
         NavigationBar:
-            size_hint_y: 0.1

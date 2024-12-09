@@ -1,7 +1,12 @@
-<LoadingScreen>:
-    name: "Load"
-    CommonBackground:
+# Kivy file for the loading screen.
+# Initial screen users see when they launch the app.
+# Contains the app logo, name, and 1 Peter 5:7
 
+<LoadingScreen>:
+    name: "Load"  # screen name for navigation
+    CommonBackground:  # applies common background
+
+    # Main container for all content
     BoxLayout:
         orientation: 'vertical'
         padding: "20dp"
@@ -10,46 +15,56 @@
         Widget:
             size_hint_y: 0.2
 
-        # Logo Section
+        # Logo and Name Section
         BoxLayout:
             orientation: 'vertical'
             size_hint_y: 0.6
 
-            # Image
+            # App logo image
             Image:
                 source: "images/LoadBackground.png"
-                size_hint: None, None
-                size: "300dp", "300dp"  # Adjust size as needed
-                pos_hint: {"center_x": 0.5}
+                size_hint: None, None  # allow custom sizing
+                size: "300dp", "300dp"  # fixed size
+                pos_hint: {"center_x": 0.5}  # center horizontally
 
             # App Name
             Label:
                 text: "BREATHEWELL"
-                color: 0, 0, 0, 1
-                font_size: '42sp'  # Made slightly larger
+                color: 0, 0, 0, 1  # black text
+                font_size: '42sp'
                 bold: True
                 size_hint_y: None
-                height: "60dp"
-                pos_hint: {"center_x": 0.5}
+                height: self.texture_size[1]  # adjust height to content
+                text_size: self.width, None  # enable text wrapping
+                halign: 'center'
+                valign: 'middle'
+                pos_hint: {"center_x": 0.5}  # center horizontally
 
         # Bible Verse Section
         BoxLayout:
             orientation: 'vertical'
             size_hint_y: 0.2
+            padding: "10dp"
 
             Label:
                 text: "1 Peter 5:7"
-                color: 0, 0, 0, 1
-                font_size: '24sp'  # Made slightly larger
-                italic: True  # Optional: adds emphasis
+                color: 0, 0, 0, 1  # black text
+                font_size: '24sp'
+                italic: True  # italicized
                 size_hint_y: None
-                height: "40dp"
-                pos_hint: {"center_x": 0.5}
+                height: self.texture_size[1]  # adjust height to content
+                text_size: self.width, None  # enable text wrapping
+                halign: 'center'
+                valign: 'middle'
+                pos_hint: {"center_x": 0.5}  # center horizontally
 
             Label:
                 text: "\"Cast all your anxiety on him because he cares for you.\""
-                color: 0, 0, 0, 1
+                color: 0, 0, 0, 1  # black text
                 font_size: '16sp'
                 size_hint_y: None
-                height: "30dp"
+                height: self.texture_size[1]
+                text_size: self.width, None
+                halign: 'center'
+                valign: 'middle'
                 pos_hint: {"center_x": 0.5}

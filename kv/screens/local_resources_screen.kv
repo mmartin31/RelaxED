@@ -1,36 +1,47 @@
+# Kivy file for local resources screen.
+# Provides links to local providers, contact information, and links to support groups
+# in the Randolph County area.
+
+# Import for handling external links
 #:import webbrowser webbrowser
 
 <LocalResourcesScreen>:
-    name: "Local Resources"
-    CommonBackground:
+    name: "Local Resources"  # screen name for navigation
+    CommonBackground:  # applies the common background
 
+    # Main container for all content
     BoxLayout:
         orientation: 'vertical'
-        padding: "20dp"
-        spacing: "10dp"
+        padding: "20dp"  # padding around content
+        spacing: "10dp"  # space between sections
 
-        # Header
+        # Header Section
         Label:
             text: "Local Mental Health Providers"
-            color: 0, 0, 0, 1
+            color: 0, 0, 0, 1  # black text
             font_size: '32sp'
-            size_hint_y: 0.1
+            size_hint_y: None
+            height: self.texture_size[1]  # adjust height to content
+            text_size: self.width, None  # enable text wrapping
+            halign: 'center'
+            valign: 'middle'
             bold: True
 
-        # Main Content Area
+        # Scrollable Content Area
         ScrollView:
             size_hint_y: 0.8
-            do_scroll_x: False
-            do_scroll_y: True
+            do_scroll_x: False  # no horizontal scrolling
+            do_scroll_y: True  # enable vertical scrolling
 
+            # Content Container
             BoxLayout:
                 orientation: 'vertical'
                 size_hint_y: None
-                height: self.minimum_height
+                height: self.minimum_height  # adjust height to content
                 spacing: "15dp"
                 padding: "10dp"
 
-                # Logo Image
+                # App logo
                 Image:
                     source: "images/LoadBackground.png"
                     size_hint: None, None
@@ -44,6 +55,8 @@
                     height: self.minimum_height
                     spacing: "10dp"
                     padding: "15dp"
+
+                    # Pink background for links section
                     canvas.before:
                         Color:
                             rgba: 0.95, 0.6, 0.75, 1
@@ -52,21 +65,29 @@
                             size: self.size
                             radius: [15]
 
+                    # Section Title
                     Label:
                         text: "Local Provider Links"
                         color: 0, 0, 0, 1
                         font_size: '24sp'
                         size_hint_y: None
-                        height: "40dp"
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
                         bold: True
 
+                    # Links - clickable and open in web browser
                     Label:
                         text: "[ref=triad][u]Triad Therapy LLC[/u][/ref]"
-                        markup: True
-                        color: 0, 0, 0.55, 1
+                        markup: True  # enable markup for underlining
+                        color: 0, 0, 0.55, 1  # blue color
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://www.triadtherapy.com/")
 
                     Label:
@@ -75,7 +96,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://www.newhorizonstreatment.org/")
 
                     Label:
@@ -84,7 +108,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("http://www.abmnc.com/")
 
                     Label:
@@ -93,7 +120,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://www.asheborocounseling.com/")
 
                     Label:
@@ -102,7 +132,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://www.daymarkrecovery.org/locations/asheboro-center")
 
                     Label:
@@ -111,7 +144,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://redbudlegacy.com/")
 
                     Label:
@@ -120,7 +156,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://www.daymarkrecovery.org/locations/archdale-center")
 
                     Label:
@@ -129,7 +168,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://www.famsolutions.org/contact")
 
                     Label:
@@ -138,7 +180,10 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://havencounselinggroup.org/")
 
                     Label:
@@ -147,16 +192,21 @@
                         color: 0, 0, 0.55, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         on_ref_press: webbrowser.open("https://youthunlimited.cc/?page_id=1693")
 
-                # Local Contact Info Box
+                # Local Contact Info Box - non-clickable info
                 BoxLayout:
                     orientation: 'vertical'
                     size_hint_y: None
                     height: self.minimum_height
                     spacing: "10dp"
                     padding: "15dp"
+
+                    # Pink background
                     canvas.before:
                         Color:
                             rgba: 0.95, 0.6, 0.75, 1
@@ -165,20 +215,26 @@
                             size: self.size
                             radius: [15]
 
+                    # Section Title
                     Label:
                         text: "Additional Local Providers"
                         color: 0, 0, 0, 1
                         font_size: '24sp'
                         size_hint_y: None
-                        height: "40dp"
+                        text_size: self.width, None
+                        halign: 'center'
+                        valign: 'middle'
+                        height: self.texture_size[1]
                         bold: True
 
+                    # Provider Content Info
                     Label:
                         text: "Cardinal Clinic, LLC\n336.318.2760 • Asheboro, NC\n\nSteps for Change Behavioral\n(336) 824-2171 • Ramseur, NC\n\nWildflower Counseling and Consulting, PLLC\n(336) 937-0716 • Ramseur, NC"
                         color: 0, 0, 0, 1
                         font_size: '16sp'
                         size_hint_y: None
-                        height: "200dp"
+                        text_size: self.width, None
+                        height: self.texture_size[1]
                         halign: 'center'
                         valign: 'middle'
 
@@ -186,8 +242,10 @@
                 BoxLayout:
                     orientation: 'vertical'
                     size_hint_y: None
-                    height: "100dp"
-                    padding: "15dp"
+                    height: self.minimum_height
+                    padding: "40dp"
+
+                    # Pink Background
                     canvas.before:
                         Color:
                             rgba: 0.95, 0.6, 0.75, 1
@@ -196,11 +254,18 @@
                             size: self.size
                             radius: [15]
 
+                    # Support Groups Link
                     Label:
                         text: "[ref=support][u]Support Groups/Facilities[/u][/ref]"
                         markup: True
                         color: 0, 0, 0.55, 1
                         font_size: '20sp'
+                        size_hint_y: None
+                        text_size: self.width, None
+                        height: self.texture_size[1]
+                        halign: 'center'
+                        valign: 'middle'
                         on_ref_press: webbrowser.open("https://www.randolphfcc.org/")
 
+        # Navigation Bar at bottom
         NavigationBar:

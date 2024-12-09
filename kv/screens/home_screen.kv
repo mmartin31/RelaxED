@@ -1,57 +1,69 @@
-<HomeScreen>:
-    name: 'Home'
-    CommonBackground:
+# Kivy file for the home screen.
+# Main landing page for the BreatheWell app.
+# Contains the app logo, an image with 1 Peter 5:7, and an app description.
 
+<HomeScreen>:
+    name: 'Home'  # screen name for navigation
+    CommonBackground:  # applies the common background
+
+    # Main container for all content
     BoxLayout:
         orientation: 'vertical'
-        padding: "20dp"
-        spacing: "15dp"
+        padding: "20dp"  # padding around content
+        spacing: "15dp"  # space between sections
 
-        # Header
+        # Header Section - App Title
         Label:
             text: "BREATHEWELL"
-            color: 0, 0, 0, 1
+            color: 0, 0, 0, 1  # black
             font_size: '42sp'
+            size_hint_y: 0.12  # takes 12% of vertical space
+            height: self.texture_size[1]  # adjust height to text
+            text_size: self.width, None
+            halign: 'center'
+            valign: 'middle'
             bold: True
-            size_hint_y: 0.15
 
-        # Main Content
+        # Main Content Section - Image and Description
         BoxLayout:
             orientation: 'vertical'
             size_hint_y: 0.75
-            spacing: "20dp"
+            spacing: "20dp"  # space between image and description
 
             # Image (Square)
             Image:
                 source: "images/verse.jpg"
-                size_hint: None, None
+                size_hint: None, None  # allow custom sizing
+                # calculate size to maintain square aspect ratio
                 size: min(self.parent.width * 0.8, self.parent.height * 0.6), min(self.parent.width * 0.8, self.parent.height * 0.6)
-                pos_hint: {'center_x': 0.5}
-                allow_stretch: True
-                keep_ratio: True
+                pos_hint: {'center_x': 0.5}  # center horizontally
+                allow_stretch: True  # allow image to stretch
+                keep_ratio: True  # keep aspect ratio
 
             # Description Box
             BoxLayout:
                 size_hint_y: 0.3
                 padding: "15dp"
+                # darker pink background for description box
                 canvas.before:
                     Color:
                         rgba: 0.95, 0.6, 0.75, 1
                     RoundedRectangle:
                         pos: self.pos
                         size: self.size
-                        radius: [20]
+                        radius: [20]  # rounded corners
 
+                # Description text
                 Label:
                     text: "BreatheWell is your companion for managing anxiety and stress. Access resources, screening tools, and daily inspiration to support your mental well-being."
-                    color: 0, 0, 0, 1
+                    color: 0, 0, 0, 1  # black
                     font_size: '16sp'
-                    text_size: self.width - dp(30), None
+                    text_size: self.width - dp(30), None  # text wrapping with padding
                     size_hint_y: None
-                    height: self.texture_size[1]
+                    height: self.texture_size[1]  # adjust height to content
                     halign: 'center'
                     valign: 'middle'
-                    pos_hint: {'center_y': 0.5}
+                    pos_hint: {'center_y': 0.5}  # center
 
         # Navigation Bar
         NavigationBar:

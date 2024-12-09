@@ -1,76 +1,55 @@
-<ScreeningToolsScreen>:
-    name: "Screening Tools"
-    CommonBackground:
+# Kivy file for screening tools screen.
+# Provides access to standardized mental health assessment tools
+# including the GAD-7 and PHQ-9 questionnaires.
 
+# Import for handling external links.
+#:import webbrowser webbrowser
+
+<ScreeningToolsScreen>:
+    name: "Screening Tools"  # screen name for navigation
+    CommonBackground:  # applies common background
+
+    # Main Container for content
     BoxLayout:
         orientation: 'vertical'
-        padding: "20dp"
-        spacing: "15dp"
+        padding: "20dp"  # padding around all content
+        spacing: "15dp"  # space between sections
 
-        # Header
+        # Header Section
         Label:
             text: "Mental Health Screening Tools"
-            color: 0, 0, 0, 1
+            color: 0, 0, 0, 1  # black text
             font_size: '32sp'
-            size_hint_y: 0.15
+            size_hint_y: None
+            height: self.texture_size[1]  # adjust height to content
+            text_size: self.width, None  # enable text wrapping
+            halign: 'center'
+            valign: 'middle'
             bold: True
 
-        # Description
+        # Disclaimer
         Label:
             text: "These screening tools are for educational purposes only and are not a substitute for professional diagnosis."
             color: 0, 0, 0, 1
             font_size: '16sp'
-            size_hint_y: 0.1
+            size_hint_y: 0.1  # 10% of vertical space
             text_size: self.width, None
             halign: 'center'
             valign: 'middle'
 
         # Screening Tools Grid
         BoxLayout:
-            orientation: 'horizontal'
+            orientation: 'horizontal'  # side by side layout
             spacing: "15dp"
             padding: "10dp"
-            size_hint_y: 0.65
+            size_hint_y: 0.65  # 65% of vertical space
 
-            # GAD-7
+            # GAD-7 Box
             BoxLayout:
                 orientation: 'vertical'
                 spacing: "5dp"
-                canvas.before:
-                    Color:
-                        rgba: 0.95, 0.6, 0.75, 1  # Light pink background
-                    RoundedRectangle:
-                        pos: self.pos
-                        size: self.size
-                        radius: [15]
                 padding: "10dp"
-
-                Label:
-                    text: "GAD-7"
-                    color: 0, 0, 0, 1
-                    font_size: '24sp'
-                    size_hint_y: 0.3
-                    bold: True
-
-                Label:
-                    text: "Generalized Anxiety\nDisorder Assessment"
-                    color: 0, 0, 0, 1
-                    font_size: '16sp'
-                    size_hint_y: 0.4
-                    halign: 'center'
-
-                HoverButton:
-                    text: "Take Assessment"
-                    size_hint: 0.8, 0.3
-                    pos_hint: {'center_x': 0.5}
-                    on_press:
-                        import webbrowser
-                        webbrowser.open("https://www.mdcalc.com/gad-7-general-anxiety-disorder-7")
-
-            # PHQ-9
-            BoxLayout:
-                orientation: 'vertical'
-                spacing: "5dp"
+                # Pink background with rounded corners
                 canvas.before:
                     Color:
                         rgba: 0.95, 0.6, 0.75, 1
@@ -78,8 +57,53 @@
                         pos: self.pos
                         size: self.size
                         radius: [15]
-                padding: "10dp"
 
+                # Title
+                Label:
+                    text: "GAD-7"
+                    color: 0, 0, 0, 1
+                    font_size: '24sp'
+                    size_hint_y: 0.3  # 30% of box height
+                    bold: True
+
+                # Tool Description
+                Label:
+                    text: "Generalized Anxiety\nDisorder Assessment"
+                    color: 0, 0, 0, 1
+                    font_size: '16sp'
+                    size_hint_y: 0.4  # 40% of box height
+                    height: self.texture_size[1]
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
+
+                # Assessment Link Button
+                Button:
+                    text: "Take Assessment"
+                    size_hint: 0.8, 0.3  # 80% width, 30% height
+                    height: self.texture_size[1]
+                    pos_hint: {'center_x': 0.5}  # center horizontally
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
+                    # open assessment in web browser
+                    on_press: webbrowser.open("https://www.mdcalc.com/gad-7-general-anxiety-disorder-7")
+
+            # PHQ-9 Box
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: "5dp"
+                padding: "10dp"
+                # Pink background with rounded corners
+                canvas.before:
+                    Color:
+                        rgba: 0.95, 0.6, 0.75, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [15]
+
+                # Title
                 Label:
                     text: "PHQ-9"
                     color: 0, 0, 0, 1
@@ -87,21 +111,28 @@
                     size_hint_y: 0.3
                     bold: True
 
+                # Description
                 Label:
                     text: "Patient Health\nQuestionnaire"
                     color: 0, 0, 0, 1
                     font_size: '16sp'
                     size_hint_y: 0.4
+                    height: self.texture_size[1]
+                    text_size: self.width, None
                     halign: 'center'
+                    valign: 'middle'
 
-                HoverButton:
+                # Assessment Link Button
+                Button:
                     text: "Take Assessment"
                     size_hint: 0.8, 0.3
+                    height: self.texture_size[1]
                     pos_hint: {'center_x': 0.5}
-                    on_press:
-                        import webbrowser
-                        webbrowser.open("https://www.mdcalc.com/phq-9-patient-health-questionnaire-9")
+                    text_size: self.width, None
+                    halign: 'center'
+                    valign: 'middle'
+                    # open assessment in web browser
+                    on_press: webbrowser.open("https://www.mdcalc.com/phq-9-patient-health-questionnaire-9")
 
         # Navigation Bar
         NavigationBar:
-            size_hint_y: 0.1

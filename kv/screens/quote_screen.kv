@@ -1,44 +1,65 @@
-<QuoteScreen>:
-    name: "Daily Quote"
-    CommonBackground:
+# Kivy file for the daily quote screen.
+# Displays inspirational quotes that can be refreshed by the user.
+# Quotes are loaded from a text file and displayed randomly.
 
+<QuoteScreen>:
+    name: "Daily Quote"  # screen name for navigation
+    CommonBackground:  # applies common background
+
+    # Main Container for all content
     BoxLayout:
         orientation: 'vertical'
-        padding: "20dp"
-        spacing: "15dp"
+        padding: "20dp"  # padding around all content
+        spacing: "15dp"  # space between sections
 
-        # Header
+        # Header Section
         Label:
             text: "Daily Inspiration"
-            color: 0, 0, 0, 1
+            color: 0, 0, 0, 1  # black text
             font_size: '32sp'
-            size_hint_y: 0.15
+            size_hint_y: 0.15  # 15% of vertical space
+            height: self.texture_size[1]  # adjust height to content
+            text_size: self.width, None  # enable text wrapping
+            halign: 'center'
+            valign: 'middle'
             bold: True
 
-        # Quote Section
-        BoxLayout:
-            orientation: 'vertical'
-            size_hint_y: 0.65
-            spacing: "20dp"
+        # Scrollable Content Area
+        ScrollView:
+            size_hint_y: 0.8  # 80% of remaining space
+            do_scroll_x: False  # no horizontal scrolling
+            do_scroll_y: True  # enable vertical scrolling
 
-            # Logo Image
-            Image:
-                source: "images/LoadBackground.png"
-                size_hint: None, None
-                size: "200dp", "200dp"
-                pos_hint: {"center_x": 0.5}
+            # Content Container
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height  # adjust height to content
+                spacing: "20dp"
 
-            # Quote Box
-            AnchorLayout:
-                anchor_x: 'center'
-                anchor_y: 'center'
-                padding: "20dp"
+                # App Logo
+                Image:
+                    source: "images/LoadBackground.png"
+                    size_hint: None, None
+                    size: "200dp", "200dp"
+                    pos_hint: {"center_x": 0.5}  # center horizontally
 
+                # Quote Refresh Button
+                Button:
+                    text: "New Quote"
+                    size_hint: 0.4, None  # 40% of width, fixed height
+                    height: "50dp"
+                    pos_hint: {"center_x": 0.5}  # center horizontally
+                    on_press: root.display_random_quote()  # call method to update quote
+
+                # Quote Display Box
                 BoxLayout:
                     orientation: 'vertical'
-                    size_hint: 0.9, None
-                    height: quote_label.height + dp(40)
-                    padding: "20dp"
+                    size_hint: 1, None  # full width, dynamic height
+                    padding: "20dp"  # padding inside box
+                    height: quote_label.texture_size[1] + dp(40)  # dynamic height based on quote length plus padding
+
+                    # Pink background with rounded corners
                     canvas.before:
                         Color:
                             rgba: 0.95, 0.6, 0.75, 1
@@ -47,35 +68,17 @@
                             size: self.size
                             radius: [20]
 
+                    # Quote Text Label
                     Label:
-                        id: quote_label
+                        id: quote_label  # ID for referencing in Python code
                         text: "Your daily quote will appear here."
-                        color: 1, 1, 1, 1
+                        color: 1, 1, 1, 1  # white text
                         font_size: '20sp'
                         size_hint_y: None
-                        height: self.texture_size[1]
-                        text_size: self.width - dp(40), None
+                        height: self.texture_size[1]  # adjust height to content
+                        text_size: self.width - dp(40), None  # text wrapping with padding
                         halign: "center"
                         valign: "middle"
-                        bold: True
-                        markup: True
-
-        # Spacer before button
-        Widget:
-            size_hint_y: 0.1
-
-        # Refresh Button
-        HoverButton:
-            text: "New Quote"
-            size_hint: 0.4, None
-            height: "50dp"
-            pos_hint: {"center_x": 0.5}
-            on_press: root.display_random_quote()
-
-        # Spacer before navigation bar
-        Widget:
-            size_hint_y: 0.1
 
         # Navigation Bar
         NavigationBar:
-            size_hint_y: 0.1
