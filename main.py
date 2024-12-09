@@ -197,21 +197,8 @@ def load_kv_files():
 
     The function adds the kv directory to the resource path and loads main.kv,
     which then includes all other .kv files through #:include directives:
-    - styles.kv (common styles and reusable rules)
+    - styles.kv (common styles)
     - All screen-specific .kv files from the screens subdirectory
-
-    File structure:
-    kv/
-    ├── main.kv
-    ├── styles.kv
-    └── screens/
-        ├── loading_screen.kv
-        ├── home_screen.kv
-        ├── resources_screen.kv
-        ├── screening_tools_screen.kv
-        ├── anxiety_ed_screen.kv
-        ├── local_resources_screen.kv
-        └── quote_screen.kv
     """
     try:
         # Add the kv directory to resource path
