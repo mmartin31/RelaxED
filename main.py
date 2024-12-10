@@ -111,40 +111,93 @@ class LoadingScreen(Screen):
 
 
 class HomeScreen(Screen):
-    """Class for Home Screen
+    """Class for Home Screen.
 
     This screen serves as the main navigation center for the app,
     providing access to various features including:
-    - Resource Screen (takes you to other features)
-    - Daily Quote Screen
-
-    The screen layout and styling are defined in the home_screen.kv file.
+        - Resource Screen (takes you to other features)
+        - Daily Quote Screen
     """
     pass
 
 
 class ResourceScreen(Screen):
-    """Class for Resource Screen"""
+    """Class for Resource Screen.
+
+    This screen provides access to the main features and tools of the
+    application through a menu of clickable options.
+
+    Content:
+        - Screening Tools: Mental health assessment tools
+        - Anxiety Education: Information about anxiety
+        - Local Resources: Local mental health providers
+        - App Survey
+
+    Navigation:
+        Each option leads to its respective screen or external link
+        in the case of the app survey.
+    """
     pass
 
 
 class ScreeningToolsScreen(Screen):
-    """Class for Screening Tools Screen"""
+    """Class for Screening Tools Screen.
+
+    This screen offers access to standardized mental health assessment
+    tools that users can take online.
+
+    Available Tools:
+        - GAD-7: Generalized Anxiety Disorder Assessment
+        - PHQ-9: Patient Health Questionnaire for Depression
+
+    Navigation:
+        Tools link to external websites for actual assessments.
+    """
     pass
 
 
 class AnxietyEDScreen(Screen):
-    """Class for Anxiety Education Screen"""
+    """Class for Anxiety Education Screen.
+
+    This screen provides educational content about anxiety through
+    a PowerPoint presentation and links to resources.
+
+    Content:
+        - Binaural Beats links
+        - Mindfulness/Meditation links
+        - Educational PowerPoint presentation
+
+    Navigation:
+        Links take user to YouTube videos.
+        Buttons for user to click through the PowerPoint.
+    """
     pass
 
 
 class LocalResourcesScreen(Screen):
-    """Class for Local Resources Screen"""
+    """Class for Local Resources Screen.
+
+    This screen provides information about mental health providers
+    and resources in the Randolph County area.
+
+    Content:
+        - Clickable links to provider websites
+        - Contact information for local providers
+        - Support group information link
+    """
     pass
 
 
 class QuoteScreen(Screen):
-    """Class for Quote Screen management."""
+    """Class for Quote Screen.
+
+    This screen manages the display of random inspirational quotes
+    that users can refresh.
+
+    Content:
+        - Random quote display
+        - Manual quote refresh
+    """
     quotes = []  # This will store the quotes list for reuse
 
     def on_enter(self):
@@ -157,7 +210,8 @@ class QuoteScreen(Screen):
         """Loads quotes from the quotes.txt file.
 
         Returns:
-            list: list of quotes, or error message if file not found"""
+            list: list of quotes, or error message if file not found
+        """
         quotes = []
         try:
             with open("text/quotes.txt", "r", encoding="utf-8") as file:
@@ -210,8 +264,8 @@ def load_kv_files():
         print(f"Error loading KV files: {e}")
 
 
-class TestApp(App):
-    """Main application class for the BreathWell app."""
+class BreatheWell(App):
+    """Main application class for the BreatheWell app."""
     def build(self):
         """Loads kivy files and returns the screen manager"""
         # Load all KV files
@@ -221,4 +275,4 @@ class TestApp(App):
 
 
 # Run the app
-TestApp().run()
+BreatheWell().run()
