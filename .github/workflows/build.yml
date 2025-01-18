@@ -1,44 +1,22 @@
 name: Build
 on:
   push:
-    branches-ignore:
-      - data
-      - gh-pages
-    tags:
-      - '**'
-  pull_request:
-    branches-ignore:
-      - data
-      - gh-pages
+    branches:
+      - main  # Change this to your default branch
 
 jobs:
-  # Build job. Builds app for Android with Buildozer
   build-android:
     name: Build for Android
     runs-on: ubuntu-20.04
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          path: master
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.7
-          architecture: x64
+        uses: actions/checkout@v2
 
       - name: Build with Buildozer
         uses: ArtemSBulgakov/buildozer-action@v1
         id: buildozer
         with:
-          repository_root: master
+          repository_root: .
           workdir: .
           buildozer_version: 1.4.0  # Specify a stable version
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: package
-          path: ${{ steps.buildozer.outputs.filename }}
