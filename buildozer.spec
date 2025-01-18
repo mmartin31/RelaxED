@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = relaxED
+title = BreatheWell
 
 # (str) Package name
-package.name = relaxed
+package.name = breathewell
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.stack
