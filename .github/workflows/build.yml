@@ -23,29 +23,22 @@ jobs:
         with:
           path: master
 
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
-        id: buildozer
-        with:
-          repository_root: master
-          workdir: .
-          buildozer_version: 1.4.0
-
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: package
-          path: ${{ steps.buildozer.outputs.filename }}
-
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          path: main
-          ref: main # Branch name
-
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: 3.7
           architecture: x64
 
+      - name: Build with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v1
+        id: buildozer
+        with:
+          repository_root: master
+          workdir: .
+          buildozer_version: 1.4.0  # Specify a stable version
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: ${{ steps.buildozer.outputs.filename }}
