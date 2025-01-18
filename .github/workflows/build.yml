@@ -1,8 +1,15 @@
 name: Build
 on:
   push:
-    branches:
-      - main  # Change this to your default branch
+    branches-ignore:
+      - data
+      - gh-pages
+    tags:
+      - '**'
+  pull_request:
+    branches-ignore:
+      - data
+      - gh-pages
 
 jobs:
   build-android:
